@@ -74,4 +74,13 @@ I searched for READMEs from people who had already completed the project. I stum
 
 One of the algorithms to solve the problem is called **Radix Sort**, but the author of the article used his own, which he ironically called the **Turk Algorithm** because according to him it is not very elegant and is hard-coded.
 
+### Logic Recap of the Turk Algorithm: How Each `pb` Operation Is Handled
+
+1. If `stack_b` is empty → `pb`
+
+2. If the number is:
+   - **the biggest** → place it above the current maximum → rotate with `rb` until the max is on top, then `pb`
+   - **the smallest** → place it below the current minimum → rotate with `rrb` until the min is at the bottom, then `pb`
+   - **intermediate** → find the **adjacent pair (x, y)** in B such that `x > number > y`,  
+     rotate B until `y` is on top, then `pb`
 
