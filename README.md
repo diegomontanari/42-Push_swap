@@ -40,11 +40,11 @@ Surely it can be done better, so without reading instructions or solutions,  I s
 
 I began by trying to divide it into smaller subproblems using various steps:
 
-### Step 1) The program must determine the order in which the numbers should be sorted.
+### Step 1️⃣ The program must determine the order in which the numbers should be sorted.
 
 Very simple, just a while loop that step by step fills a list.
 
-### Step 2) Evaluate the situations:
+### Step 2️⃣ Evaluate the situations:
 
 **Premise:**
 
@@ -74,7 +74,7 @@ I searched for READMEs from people who had already completed the project. I stum
 
 One of the algorithms to solve the problem is called **Radix Sort**, but the author of the article used his own, which he ironically called the **Turk Algorithm** because according to him it is not very elegant and is hard-coded.
 
-### Logic Recap of the Turk Algorithm: How Each `pb` Operation Is Handled
+### ⚛️ Logic Recap of the Turk Algorithm: How Each `pb` Operation Is Handled
 
 1. If `stack_b` is empty → `pb`
 
