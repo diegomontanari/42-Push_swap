@@ -1,5 +1,5 @@
 # 42-Push_swap 📦
-<img width="1536" height="50" alt="Push_swap AI Photo" src="https://github.com/user-attachments/assets/14657bee-9f0d-4c51-8656-ca1080b9ac78" />
+<img width="1536" height="500" alt="Push_swap AI Photo" src="https://github.com/user-attachments/assets/14657bee-9f0d-4c51-8656-ca1080b9ac78" />
 
 **Introduction:**
 🧠 Writing a **sorting algorithm** is always a crucial step in a developer’s journey. It is often the first encounter with the concept of complexity. 
