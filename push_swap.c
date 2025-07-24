@@ -1,15 +1,11 @@
-#include "libft.h"
-
-typedef struct s_list
-{
-    int             value;
-    struct s_list   *next;
-} t_list;
-
-
+// argc e argv non sono variabili speciali come
+// __name__ in Python, ma sono solo nomi di variabili.
+// Il compilatore capisce che sono gli argomenti della linea
+// di comando perché sono dati in input al main.
+// Quindi, possono avere un qualsiasi altro nome.
 int	main(int argc, char **argv)
 {
-	t_list	*a; 
+	t_stack	*a; 
 
 	a = ft_process(argc, argv);
 	if (!a || ft_checkdup(a))
