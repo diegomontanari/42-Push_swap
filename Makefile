@@ -14,21 +14,25 @@ FLAGS = -Wall -Wextra -Werror -Iincludes
 LIBFTDIR = libft/
 
 # Lista di tutti i file sorgente del progetto
-SRCS =	algorithm.c \
-		ft_add_node_to_back.c \
-		ft_stack_new.c \
-		ft_check_utils.c \
+SRCS =	ft_add_node_to_back.c \
 		ft_check_dup.c \
+		ft_check_utils.c \
 		ft_checksorted.c \
 		ft_error_print.c \
 		ft_free.c \
 		ft_new_node.c \
 		ft_rotate_and_push.c \
 		ft_rotate_type.c \
+		ft_solver_utils_ab.c \
+		ft_solver_utils_ba.c \
+		ft_sort_big.c \
+		ft_sort_three.c \
+		ft_utils2.c \
+		input_parser.c \
 		lst_utils.c \
 		operations.c \
-		operations_2.c \
-		operations_3.c \
+		operations2.c \
+		operations3.c \
 		push_swap.c
 
 # Crea i file oggetto sostituendo .c con .o
