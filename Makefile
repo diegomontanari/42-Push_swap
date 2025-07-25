@@ -1,72 +1,94 @@
+# ================================= VARIABILI ================================ #
+
+# Nome dell'eseguibile finale
 NAME = push_swap
+
+# Compilatore e flag di compilazione
+# la flag -I(CARTELLA IN CUI ENTRARE) dice di entrare in includes per l'header
+# se l'header e' dentro 2 cartelle lo ripeti (es: -Iincludes -Idirectory2)
 CC = gcc
 RM = rm -f
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -Iincludes
+
+# Directory del progetto
 LIBFTDIR = libft/
-OBJ_DIR = obj/
-BONUS = checker
-SRC_DIR = srcs/
 
-SRC_1 = srcs/push_swap/push_swap.c \
+# Lista di tutti i file sorgente del progetto
+SRCS =	algorithm.c \
+		ft_add_node_to_back.c \
+		ft_stack_new.c \
+		ft_check_utils.c \
+		ft_check_dup.c \
+		ft_checksorted.c \
+		ft_error_print.c \
+		ft_free.c \
+		ft_new_node.c \
+		ft_rotate_and_push.c \
+		ft_rotate_type.c \
+		lst_utils.c \
+		operations.c \
+		operations_2.c \
+		operations_3.c \
+		push_swap.c
 
-SRC_2 =	srcs/push_swap/algorithm.c \
-		srcs/push_swap/ft_add_back.c \
-		srcs/push_swap/ft_stack_new.c \
-		srcs/push_swap/ft_check_utils.c \
-		srcs/push_swap/ft_parse.c \
-		srcs/push_swap/solver_utils_ab.c \
-		srcs/push_swap/solver_utils_ba.c \
-		srcs/push_swap/ft_rotate_and_push.c \
-		srcs/push_swap/operations.c \
-		srcs/push_swap/operations_2.c \
-		srcs/push_swap/operations_3.c \
-		srcs/push_swap/ft_check_dup.c \
-		srcs/push_swap/ft_check_sorted.c \
-		srcs/push_swap/ft_error_print.c \
-		srcs/push_swap/ft_free.c \
-		srcs/push_swap/lst_utils.c \
-		srcs/push_swap/lst_utils_2.c \
-		srcs/push_swap/ft_parse_args_quoted.c \
-		srcs/push_swap/ft_list_args.c \
-		srcs/push_swap/ft_check_args.c \
-		srcs/push_swap/ft_sort_big.c \
-		srcs/push_swap/ft_sort_three.c \
-		srcs/push_swap/ft_rotate_type.c \
-		
-BONUS_SRC = srcs/checker/checker.c \
-			srcs/checker/checker_utils.c \
-			
+# Crea i file oggetto sostituendo .c con .o
+# Trasforma: algorithm.c -> algorithm.o, ft_add_node_to_back.c -> ft_add_node_to_back.o, ecc.
+OBJS = $(SRCS:.c=.o)
 
-OBJ_1 = ${SRC_1:.c=.o}
-OBJ_2 = ${SRC_2:.c=.o}
-
-BONUS_OBJ =${BONUS_SRC:.c=.o}
-
+# Flag per linkare la libft (-I unisce gli header, -L le librerie !!)
 INCLUDE = -L ./libft -lft
 
+# ================================== REGOLE ================================== #
+
+# Regola per compilare i file .c in .o
+# $< = primo prerequisito (file .c)
+# $@ = target (file .o)
 .c.o:
-	${CC} -c $< -o ${<:.c=.o}
+	$(CC) $(FLAGS) -c $< -o $@
 
-${NAME}: ${OBJ_1} ${OBJ_2}
+# Target principale: compila l'eseguibile push_swap
+$(NAME): $(OBJS)
 	make -C $(LIBFTDIR)
-	${CC} ${FLAGS} ${OBJ_1} ${OBJ_2} -o ${NAME} ${INCLUDE}
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME) $(INCLUDE)
 
-${BONUS}: ${OBJ_2} ${BONUS_OBJ} 
-	make -C $(LIBFTDIR)
-	${CC} ${FLAGS} ${BONUS_OBJ} ${OBJ_2} -o ${BONUS} ${INCLUDE}
+# Target all: compila tutto (solo il programma principale)
+all: $(NAME)
 
-all: ${NAME} ${BONUS}
+# =============================== PULIZIA ==================================== #
 
-bonus: ${BONUS} 
+# Target clean: rimuove file oggetto (.o) (riga 1) e pulisce libft (riga 2)
+# 1a riga rimuove OBJS, 2a attiva make clean di libft
+# pratica standard: il clean di un progetto pulisce anche le sue dipendenze.
+
+
+# Il @ all'inizio del comando serve a nascondere il comando stesso durante l'esecuzione.
+# Senza @:
+# cd libft/ && make clean
+# make[1]: Entering directory 'libft'
+# [output del clean della libft]
+# Con @:
+# make[1]: Entering directory 'libft'
+# [output del clean della libft]
 
 clean:
-	${RM} ${OBJ_1} ${OBJ_2} ${BONUS_OBJ} ${NAME} ${BONUS}
+	$(RM) $(OBJS)
 	@cd $(LIBFTDIR) && $(MAKE) clean
 
+# Target fclean: pulizia completa (clean + rimuove eseguibili)
+# RICORDA: File sorgente (.c) → Il tuo codice originale
+# File oggetto (.o) → File compilati ma non ancora eseguibili
+# File libreria (.a) → Librerie compilate (come libft.a) (SONO ESEGUIBILI)
+# File eseguibile (push_swap) → Il programma finale che puoi eseguire
+# quindi che sia .a o eseguibili non librerie, fclean li rimuove
 fclean: clean
-	${RM} ${NAME}
+	$(RM) $(NAME)
 	@cd $(LIBFTDIR) && $(MAKE) fclean
 
-re: clean all
+# Target re: ricompila tutto da zero (fclean + all)
+re: fclean all
 
-.PHONY: all clean fclean re bonus
+# .PHONY dice a make: "questi (clean, fclean)
+# NON sono nomi di file, sono solo comandi", esegui comendo
+# Senza .PHONY: make clean direbbe "il file clean esiste già, non faccio niente"
+# È una "garanzia" che i target vengano sempre eseguiti.
+.PHONY: all clean fclean re

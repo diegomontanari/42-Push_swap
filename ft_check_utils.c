@@ -1,4 +1,5 @@
-//chec if the chracter is negative
+#include "includes/push_swap.h"
+//check if the character is negative
 int	sign(int c)
 {
 	if (c == '+' || c == '-')

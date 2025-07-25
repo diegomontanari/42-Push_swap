@@ -1,8 +1,9 @@
+#include "includes/push_swap.h"
 // rb (rotate b) : shift up all elements of stack b by 1. 
 // The first element becomes the last one.
-void	ft_rb(t_list **b, int j)
+void	ft_rb(t_stack **b, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!*b || !(*b)->next)
 		return ;
@@ -17,9 +18,9 @@ void	ft_rb(t_list **b, int j)
 
 // sb (swap b) : swap the first 2 elements at the top of stack b. 
 // Do nothing if there is only one or no elements).
-void	ft_sb(t_list **b, int j)
+void	ft_sb(t_stack **b, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!*b || !((*b)->next))
 		return ;

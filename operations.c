@@ -1,11 +1,12 @@
+#include "includes/push_swap.h"
 // il primo if è sempre per verificare se la lista è vuota o ha un solo elemento
 // se la lista è vuota o ha un solo elemento, non fa nulla
 
 // ra (rotate a) : shift up all elements of stack a by 1. 
 // The first element becomes the last one.
-void	ft_ra(t_list **a, int j)
+void	ft_ra(t_stack **a, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!*a || !(*a)->next)
 		return ;
@@ -20,9 +21,9 @@ void	ft_ra(t_list **a, int j)
 
 // sa (swap a) : swap the first 2 elements at the top of stack a. 
 // Do nothing if there is only one or no elements).
-void	ft_sa(t_list **a, int j)
+void	ft_sa(t_stack **a, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!*a || !((*a)->next))
 		return ;
@@ -36,9 +37,9 @@ void	ft_sa(t_list **a, int j)
 
 // pa (push a) : take the first element at the top of b and 
 // put it at the top of a. Do nothing if b is empty.
-void	ft_pa(t_list **a, t_list **b, int j)
+void	ft_pa(t_stack **a, t_stack **b, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!*b)
 		return ;
@@ -52,9 +53,9 @@ void	ft_pa(t_list **a, t_list **b, int j)
 
 // rra (reverse rotate a) : shift down all elements of stack a by 1. 
 // The last element becomes the first one.
-void	ft_rra(t_list **a, int j)
+void	ft_rra(t_stack **a, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 	int		i;
 
 	if (!*a || !(*a)->next)
@@ -78,9 +79,9 @@ void	ft_rra(t_list **a, int j)
 }
 
 // ss : sa and sb at the same time.
-void	ft_ss(t_list **a, t_list **b, int j)
+void	ft_ss(t_stack **a, t_stack **b, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!*a || !((*a)->next) || !*b || !((*b)->next))
 		return ;

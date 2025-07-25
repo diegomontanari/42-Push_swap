@@ -1,3 +1,4 @@
+#include "includes/push_swap.h"
 // This function checks the index of a number
 // 	 in the stack.
 int	ft_find_index(t_stack *a, int nbr)

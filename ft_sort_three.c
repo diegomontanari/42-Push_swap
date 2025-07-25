@@ -1,3 +1,4 @@
+#include "includes/push_swap.h"
 // - Il primo if verifica se il minimo è in cima 
 //  (In questo caso l'unica comb. disordinata è min-max-mid)
 // - Else if se max in cima con ra max va in fondo,

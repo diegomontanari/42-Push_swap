@@ -1,9 +1,10 @@
+#include "includes/push_swap.h"
 // I'm simply creating the node for the value
 t_stack *ft_new_node(int value)
 {
-    t_list *new;
+    t_stack *new;
 
-    new = malloc(sizeof(t_list));
+    new = malloc(sizeof(t_stack));
     if (!new)
         ft_error();
     new->nbr = value;

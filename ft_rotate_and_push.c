@@ -1,3 +1,4 @@
+#include "includes/push_swap.h"
 // This function rotates both stack_a and stack_b
 // in the same direction as required amount.
 int	ft_apply_rarb(t_stack **a, t_stack **b, int c, char s)

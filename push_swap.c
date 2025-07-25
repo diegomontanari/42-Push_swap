@@ -1,3 +1,4 @@
+#include "includes/push_swap.h"
 // argc e argv non sono variabili speciali come
 // __name__ in Python, ma sono solo nomi di variabili.
 // Il compilatore capisce che sono gli argomenti della linea

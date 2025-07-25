@@ -1,7 +1,8 @@
+#include "includes/push_swap.h"
 // rr : ra and rb at the same time
-void	ft_rr(t_list **a, t_list **b, int j)
+void	ft_rr(t_stack **a, t_stack **b, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!*a || !((*a)->next) || !*b || !((*b)->next))
 		return ;
@@ -20,9 +21,9 @@ void	ft_rr(t_list **a, t_list **b, int j)
 }
 
 // Second part of the rrr function
-void	ft_rrr_sub(t_list **b, int j)
+void	ft_rrr_sub(t_stack **b, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 	int		i;
 
 	i = 0;
@@ -44,9 +45,9 @@ void	ft_rrr_sub(t_list **b, int j)
 }
 
 // rrr : rra and rrb at the same time.
-void	ft_rrr(t_list **a, t_list **b, int j)
+void	ft_rrr(t_stack **a, t_stack **b, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 	int		i;
 
 	if (!*a || !((*a)->next) || !*b || !((*b)->next))
@@ -70,9 +71,9 @@ void	ft_rrr(t_list **a, t_list **b, int j)
 
 // pb (push b) : take the first element at the top of a and put it 
 // at the top of b. Do nothing if a is empty.
-void	ft_pb(t_list **stack_a, t_list **stack_b, int j)
+void	ft_pb(t_stack **stack_a, t_stack **stack_b, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (!*stack_a)
 		return ;
@@ -86,9 +87,9 @@ void	ft_pb(t_list **stack_a, t_list **stack_b, int j)
 
 // rrb (reverse rotate b) : shift down all elements of stack b by 1. 
 // The last element becomes the first one.
-void	ft_rrb(t_list **b, int j)
+void	ft_rrb(t_stack **b, int j)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 	int		i;
 
 	if (!*b || !(*b)->next)
