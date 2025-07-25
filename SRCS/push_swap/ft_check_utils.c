@@ -1,4 +1,4 @@
-#include "includes/push_swap.h"
+#include "push_swap.h"
 //check if the character is negative
 int	sign(int c)
 {

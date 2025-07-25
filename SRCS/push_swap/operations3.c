@@ -1,4 +1,4 @@
-#include "includes/push_swap.h"
+#include "push_swap.h"
 // rb (rotate b) : shift up all elements of stack b by 1. 
 // The first element becomes the last one.
 void	ft_rb(t_stack **b, int j)
@@ -8,7 +8,7 @@ void	ft_rb(t_stack **b, int j)
 	if (!*b || !(*b)->next)
 		return ;
 	tmp = *b;
-	*b = ft_lstlast(*b);
+	*b = ft_stack_last(*b);
 	(*b)->next = tmp;
 	*b = tmp->next;
 	tmp->next = NULL;

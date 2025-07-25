@@ -7,7 +7,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 // ../ means previous dir, then libft/ then libft.h
-# include "../42-libft/libft.h"
+# include "../libft/libft.h"
 
 // I use a doubly linked list (concrete data structure)
 // that behaves like a stack (abstract data structure)
@@ -23,16 +23,21 @@ typedef struct s_stack
 void		ft_add_node_to_back(t_stack **stack, t_stack *node_new);
 t_stack		*ft_new_node(int value);
 void		ft_free(t_stack **lst);
-t_stack		*ft_lstlast(t_stack *lst);
-int			ft_lstsize(t_stack *lst);
+t_stack		*ft_stack_last(t_stack *lst);
+int			ft_stack_size(t_stack *lst);
 
 // Parsing e controllo input
+t_stack		*ft_process(int argc, char **argv);
 int			check_args(char **argv);
 void		alpha_check(char **argv);
 int			check_error(char **argv, int i, int j);
 int			ft_checkdup(t_stack *a);
 void		ft_error(void);
+void		ft_error_ch(void);
+char   *get_next_line(int fd);
 void		ft_freestr(char **lst);
+t_stack		*ft_process_quoted_numbers(char **argv);
+int			ft_atoi2(const char *str);
 
 // Operazioni stack
 void		ft_sa(t_stack **a, int j);

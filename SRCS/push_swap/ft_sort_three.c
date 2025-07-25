@@ -1,4 +1,4 @@
-#include "includes/push_swap.h"
+#include "push_swap.h"
 // - Il primo if verifica se il minimo è in cima 
 //  (In questo caso l'unica comb. disordinata è min-max-mid)
 // - Else if se max in cima con ra max va in fondo,
@@ -26,3 +26,4 @@ void	ft_sort_three(t_stack **stack_a)
 		else
 			ft_sa(stack_a, 0);
 	}
+}

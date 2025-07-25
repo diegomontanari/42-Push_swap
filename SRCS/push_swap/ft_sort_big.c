@@ -1,11 +1,11 @@
-#include "includes/push_swap.h"
+#include "push_swap.h"
 // This function sort and push stacks until 3 members left behind.
 void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
 	t_stack	*tmp;
 
-	while (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
+	while (ft_stack_size(*stack_a) > 3 && !ft_checksorted(*stack_a))
 	{
 		tmp = *stack_a;
 		i = ft_rotate_type_ab(*stack_a, *stack_b);
@@ -35,11 +35,11 @@ t_stack	*ft_sort_b(t_stack **stack_a)
 	t_stack	*stack_b;
 
 	stack_b = NULL;
-	if (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
+	if (ft_stack_size(*stack_a) > 3 && !ft_checksorted(*stack_a))
 		ft_pb(stack_a, &stack_b, 0);
-	if (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
+	if (ft_stack_size(*stack_a) > 3 && !ft_checksorted(*stack_a))
 		ft_pb(stack_a, &stack_b, 0);
-	if (ft_lstsize(*stack_a) > 3 && !ft_checksorted(*stack_a))
+	if (ft_stack_size(*stack_a) > 3 && !ft_checksorted(*stack_a))
 		ft_sort_b_till_3(stack_a, &stack_b);
 	if (!ft_checksorted(*stack_a))
 		ft_sort_three(stack_a);
@@ -88,14 +88,14 @@ void	ft_sort(t_stack **stack_a)
 	int		i;
 
 	stack_b = NULL;
-	if (ft_lstsize(*stack_a) == 2)
+	if (ft_stack_size(*stack_a) == 2)
 		ft_sa(stack_a, 0);
 	else
 	{
 		stack_b = ft_sort_b(stack_a);
 		stack_a = ft_sort_a(stack_a, &stack_b);
 		i = ft_find_index(*stack_a, ft_min(*stack_a));
-		if (i < ft_lstsize(*stack_a) - i)
+		if (i < ft_stack_size(*stack_a) - i)
 		{
 			while ((*stack_a)->nbr != ft_min(*stack_a))
 				ft_ra(stack_a, 0);

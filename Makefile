@@ -13,27 +13,11 @@ FLAGS = -Wall -Wextra -Werror -Iincludes
 # Directory del progetto
 LIBFTDIR = libft/
 
-# Lista di tutti i file sorgente del progetto
-SRCS =	ft_add_node_to_back.c \
-		ft_check_dup.c \
-		ft_check_utils.c \
-		ft_checksorted.c \
-		ft_error_print.c \
-		ft_free.c \
-		ft_new_node.c \
-		ft_rotate_and_push.c \
-		ft_rotate_type.c \
-		ft_solver_utils_ab.c \
-		ft_solver_utils_ba.c \
-		ft_sort_big.c \
-		ft_sort_three.c \
-		ft_utils2.c \
-		input_parser.c \
-		lst_utils.c \
-		operations.c \
-		operations2.c \
-		operations3.c \
-		push_swap.c
+# Lista di tutti i file sorgente del progetto.
+## Wildcard è una funzione di GNU Make che permette di trovare automaticamente 
+## tutti i file che corrispondono a un certo pattern (ad esempio tutti i.c
+## in una cartella).
+SRCS = $(wildcard SRCS/push_swap/*.c)
 
 # Crea i file oggetto sostituendo .c con .o
 # Trasforma: algorithm.c -> algorithm.o, ft_add_node_to_back.c -> ft_add_node_to_back.o, ecc.
@@ -95,4 +79,17 @@ re: fclean all
 # NON sono nomi di file, sono solo comandi", esegui comendo
 # Senza .PHONY: make clean direbbe "il file clean esiste già, non faccio niente"
 # È una "garanzia" che i target vengano sempre eseguiti.
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re push_swap checker
+
+# ======================== CHECKER (aggiunta) =============================== #
+# Sorgenti checker: tutti i .c in SRCS/checker
+
+CHECKER_SRCS = $(wildcard SRCS/checker/*.c)
+CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
+
+# Regola per compilare checker
+# ovviamente -o checker specifica che il nome dell'eseguibile è checker
+# make -C $(LIBFTDIR) compila la libft (va fatto prima di compilare checker)
+checker: $(CHECKER_OBJS)
+	make -C $(LIBFTDIR)
+	$(CC) $(FLAGS) $(CHECKER_OBJS) -o checker $(INCLUDE)

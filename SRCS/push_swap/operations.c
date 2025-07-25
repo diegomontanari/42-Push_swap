@@ -1,4 +1,4 @@
-#include "includes/push_swap.h"
+#include "push_swap.h"
 // il primo if è sempre per verificare se la lista è vuota o ha un solo elemento
 // se la lista è vuota o ha un solo elemento, non fa nulla
 
@@ -11,7 +11,7 @@ void	ft_ra(t_stack **a, int j)
 	if (!*a || !(*a)->next)
 		return ;
 	tmp = *a; // salva la testa della lista in temp
-	*a = ft_lstlast(*a); // porta il puntatore all'ultimo elemento della lista
+	*a = ft_stack_last(*a); // porta il puntatore all'ultimo elemento della lista
 	(*a)->next = tmp; // imposta il next dell'ultimo elemento della lista a tmp (che sarebbe la testa) (per un istante la lista è “circolare”, ma solo momentaneamente durante la rotazione)
 	*a = tmp->next;  // *a è il next dell'
 	tmp->next = NULL;

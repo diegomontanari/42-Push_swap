@@ -1,6 +1,6 @@
-#include "includes/push_swap.h"
+#include "push_swap.h"
 // This function returns the last element of the stack.
-t_stack	*ft_lstlast(t_stack *lst)
+t_stack	*ft_stack_last(t_stack *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -10,7 +10,7 @@ t_stack	*ft_lstlast(t_stack *lst)
 }
 
 // This function returns the size of the stack.
-int	ft_lstsize(t_stack *lst)
+int	ft_stack_size(t_stack *lst)
 {
 	size_t	i;
 

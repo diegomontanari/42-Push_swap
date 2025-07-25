@@ -1,4 +1,4 @@
-#include "includes/push_swap.h"
+#include "push_swap.h"
 
 // This function parses (elabora/interpreta)the command-line arguments 
 // and fills stack 'a'.

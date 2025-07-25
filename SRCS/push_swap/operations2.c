@@ -1,4 +1,4 @@
-#include "includes/push_swap.h"
+#include "push_swap.h"
 // rr : ra and rb at the same time
 void	ft_rr(t_stack **a, t_stack **b, int j)
 {
@@ -7,12 +7,12 @@ void	ft_rr(t_stack **a, t_stack **b, int j)
 	if (!*a || !((*a)->next) || !*b || !((*b)->next))
 		return ;
 	tmp = *a;
-	*a = ft_lstlast(*a);
+	*a = ft_stack_last(*a);
 	(*a)->next = tmp;
 	*a = tmp->next;
 	tmp->next = NULL;
 	tmp = *b;
-	*b = ft_lstlast(*b);
+	*b = ft_stack_last(*b);
 	(*b)->next = tmp;
 	*b = tmp->next;
 	tmp->next = NULL;
