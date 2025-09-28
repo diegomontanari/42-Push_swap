@@ -31,13 +31,16 @@ INCLUDE = -L ./libft -lft
 # Regola per compilare i file .c in .o
 # $< = primo prerequisito (file .c)
 # $@ = target (file .o)
-.c.o:
+$(OBJS): %.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@
 
 # Target principale: compila l'eseguibile push_swap
-$(NAME): $(OBJS)
-	make -C $(LIBFTDIR)
+$(NAME): $(OBJS) $(LIBFTDIR)libft.a
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME) $(INCLUDE)
+
+# Regola per compilare libft.a
+$(LIBFTDIR)libft.a:
+	@make -C $(LIBFTDIR)
 
 # Target all: compila tutto (solo il programma principale)
 all: $(NAME)
@@ -79,17 +82,5 @@ re: fclean all
 # NON sono nomi di file, sono solo comandi", esegui comendo
 # Senza .PHONY: make clean direbbe "il file clean esiste già, non faccio niente"
 # È una "garanzia" che i target vengano sempre eseguiti.
-.PHONY: all clean fclean re push_swap checker
+.PHONY: all clean fclean re push_swap
 
-# ======================== CHECKER (aggiunta) =============================== #
-# Sorgenti checker: tutti i .c in SRCS/checker
-
-CHECKER_SRCS = $(wildcard SRCS/checker/*.c)
-CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
-
-# Regola per compilare checker
-# ovviamente -o checker specifica che il nome dell'eseguibile è checker
-# make -C $(LIBFTDIR) compila la libft (va fatto prima di compilare checker)
-checker: $(CHECKER_OBJS)
-	make -C $(LIBFTDIR)
-	$(CC) $(FLAGS) $(CHECKER_OBJS) -o checker $(INCLUDE)

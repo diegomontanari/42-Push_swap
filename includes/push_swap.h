@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 // ../ means previous dir, then libft/ then libft.h
-# include "../libft/libft.h"
+# include "../libft/INC/libft.h"
 
 // I use a doubly linked list (concrete data structure)
 // that behaves like a stack (abstract data structure)
