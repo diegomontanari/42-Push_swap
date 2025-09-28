@@ -45,24 +45,31 @@
 
 NAME = libft.a
 
-SRCS = ft_isdigit.c ft_memset.c ft_strjoin.c ft_strtrim.c ft_isprint.c \
-ft_putchar_fd.c ft_strlcat.c ft_substr.c ft_atoi.c ft_itoa.c ft_putendl_fd.c \
-ft_strlcpy.c ft_tolower.c ft_bzero.c ft_putnbr_fd.c ft_strlen.c \
-ft_toupper.c ft_calloc.c ft_memchr.c ft_putstr_fd.c ft_strmapi.c ft_isalnum.c \
-ft_memcmp.c ft_split.c ft_strncmp.c ft_isalpha.c ft_memcpy.c ft_strchr.c\
-ft_strnstr.c ft_isascii.c ft_memmove.c ft_strdup.c ft_strrchr.c ft_striteri.c \
+# Updated source files with new folder structure
+SRCS = SRC/ft_is/ft_isalnum.c SRC/ft_is/ft_isalpha.c SRC/ft_is/ft_isascii.c \
+		SRC/ft_is/ft_isdigit.c SRC/ft_is/ft_isprint.c SRC/ft_mem/ft_bzero.c \
+		SRC/ft_mem/ft_calloc.c SRC/ft_mem/ft_memchr.c SRC/ft_mem/ft_memcmp.c \
+		SRC/ft_mem/ft_memcpy.c SRC/ft_mem/ft_memmove.c SRC/ft_mem/ft_memset.c \
+		SRC/ft_put/ft_putchar_fd.c SRC/ft_put/ft_putendl_fd.c SRC/ft_put/ft_putnbr_fd.c \
+		SRC/ft_put/ft_putstr_fd.c SRC/ft_str/ft_split.c SRC/ft_str/ft_strchr.c \
+		SRC/ft_str/ft_strdup.c SRC/ft_str/ft_striteri.c SRC/ft_str/ft_strjoin.c \
+		SRC/ft_str/ft_strlcat.c SRC/ft_str/ft_strlcpy.c SRC/ft_str/ft_strlen.c \
+		SRC/ft_str/ft_strmapi.c SRC/ft_str/ft_strncmp.c SRC/ft_str/ft_strnstr.c \
+		SRC/ft_str/ft_strrchr.c SRC/ft_str/ft_strtrim.c SRC/ft_str/ft_substr.c \
+		SRC/ft_to/ft_atoi.c SRC/ft_to/ft_itoa.c SRC/ft_to/ft_tolower.c SRC/ft_to/ft_toupper.c \
+		SRC/ft_printf/ft_printf.c SRC/ft_printf/ft_print_char.c SRC/ft_printf/ft_print_hex.c \
+		SRC/ft_printf/ft_print_int.c SRC/ft_printf/ft_print_nbr_base.c \
+		SRC/ft_printf/ft_print_ptr.c SRC/ft_printf/ft_print_str.c SRC/ft_printf/ft_strlen.c \
+		SRC/get_next_line/get_next_line.c SRC/get_next_line/get_next_line_utils.c
 
-BONUS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
-		ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c \
 
 OBJS = ${SRCS:.c=.o}
 
-OBJSBONUS = ${BONUS:.c=.o}
 
 CC		= gcc
 RM		= rm -f
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I./INC
 
 .c.o:
 		${CC} ${CFLAGS} -c $< -o $@
@@ -70,13 +77,11 @@ CFLAGS = -Wall -Wextra -Werror
 $(NAME): ${OBJS}
 		ar rcs ${NAME} ${OBJS}
 
-bonus:	${OBJSBONUS}
-		ar rcs ${NAME} ${OBJSBONUS}
 
 all:	${NAME}
 
 clean:
-		${RM} ${OBJS} ${OBJSBONUS}
+		${RM} ${OBJS}
 
 fclean:	clean
 		${RM} ${NAME}

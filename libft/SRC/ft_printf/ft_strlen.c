@@ -5,23 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmontana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 17:03:04 by dmontana          #+#    #+#             */
-/*   Updated: 2025/01/04 18:12:44 by dmontana         ###   ########.fr       */
+/*   Created: 2025/02/26 14:29:53 by dmontana          #+#    #+#             */
+/*   Updated: 2025/02/26 14:29:55 by dmontana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//size_t is largely used for measures, it is useful as:
-//n1) It's not negative
-//n2) Has generally more bytes than int
+#include "ft_printf.h"
 
-#include "libft.h"
-
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	size_t	counter;
+	size_t	i;
 
-	counter = 0;
-	while (str[counter])
-		counter++;
-	return (counter);
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+	return (i);
 }

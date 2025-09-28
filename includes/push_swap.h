@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmontana <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/28 16:37:10 by dmontana          #+#    #+#             */
+/*   Updated: 2025/09/28 17:58:51 by dmontana         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -17,7 +29,7 @@ typedef struct s_stack
 	long			index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-} t_stack;
+}	t_stack;
 
 // Costruzione e gestione lista
 void		ft_add_node_to_back(t_stack **stack, t_stack *node_new);
@@ -34,7 +46,7 @@ int			check_error(char **argv, int i, int j);
 int			ft_checkdup(t_stack *a);
 void		ft_error(void);
 void		ft_error_ch(void);
-char   *get_next_line(int fd);
+char		*get_next_line(int fd);
 void		ft_freestr(char **lst);
 t_stack		*ft_process_quoted_numbers(char **argv);
 int			ft_atoi2(const char *str);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sort_big.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmontana <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/28 17:01:31 by dmontana          #+#    #+#             */
+/*   Updated: 2025/09/28 17:01:33 by dmontana         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 // This function sort and push stacks until 3 members left behind.
 void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
@@ -25,7 +37,8 @@ void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-// This function starts by pushing the first two elements from stack_a to stack_b,
+// This function starts by pushing the first two elements from 
+// stack_a to stack_b,
 // in order to initialize stack_b and allow correct placement calculations.
 // Then it continues pushing elements from stack_a to stack_b using the
 // optimal rotation strategy, until only three elements are left in stack_a.
@@ -104,6 +117,6 @@ void	ft_sort(t_stack **stack_a)
 		{
 			while ((*stack_a)->nbr != ft_min(*stack_a))
 				ft_rra(stack_a, 0);
-		}			
-	}	
+		}
+	}
 }
