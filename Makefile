@@ -17,7 +17,7 @@ LIBFTDIR = libft/
 ## Wildcard è una funzione di GNU Make che permette di trovare automaticamente 
 ## tutti i file che corrispondono a un certo pattern (ad esempio tutti i.c
 ## in una cartella).
-SRCS = $(wildcard SRCS/push_swap/*.c)
+SRCS = $(wildcard src/*.c)
 
 # Crea i file oggetto sostituendo .c con .o
 # Trasforma: algorithm.c -> algorithm.o, ft_add_node_to_back.c -> ft_add_node_to_back.o, ecc.

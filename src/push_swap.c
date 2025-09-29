@@ -22,7 +22,9 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 
 	a = ft_process(argc, argv);
-	if (!a || ft_checkdup(a))
+	if (!a)
+		return (0);
+	if (ft_checkdup(a))
 	{
 		ft_free(&a);
 		ft_error();

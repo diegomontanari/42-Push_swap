@@ -30,7 +30,7 @@ t_stack	*ft_process(int argc, char **argv)
 	i = 1;
 	a = NULL;
 	if (argc < 2)
-		ft_error();
+		return (NULL);
 	if (argc == 2)
 		a = ft_process_quoted_numbers(argv);
 	else
@@ -59,6 +59,13 @@ t_stack	*ft_process_quoted_numbers(char **argv)
 	a = NULL;
 	i = 0;
 	tmp = ft_split(argv[1], 32);
+	if (!tmp)
+		return (NULL);
+	if (!tmp[0])
+	{
+		free(tmp);
+		return (NULL);
+	}
 	while (tmp[i])
 	{
 		j = ft_atoi2(tmp[i]);
