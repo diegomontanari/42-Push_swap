@@ -81,6 +81,7 @@ t_stack	*ft_process_quoted_numbers(char **argv)
 // (normal atoi does not have overflow protection)
 // - Skips leading whitespace characters.
 // - Handles optional '+' or '-' sign.
+// if (!*str) manages things like: " " or "" etc...
 // - Converts the string to a number, stopping at invalid characters.
 // - If the string is invalid or the number overflows, triggers an error.
 int	ft_atoi2(const char *str)
@@ -100,6 +101,8 @@ int	ft_atoi2(const char *str)
 	}
 	else if (*str == '+')
 		str++;
+	if (!*str)
+		ft_error();
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
