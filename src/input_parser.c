@@ -14,7 +14,7 @@
 
 // This function parses (elabora/interpreta)the command-line arguments
 // and fills stack 'a'.
-// 1. If argc < 2: there are no arguments → triggers an error.
+// 1. If argc < 2: no arguments → exits silently (no error).
 // 2. If argc == 2: assumes a single quoted
 //					string of numbers → splits and converts them.
 // 3. If argc > 2: processes each argument individually
@@ -64,7 +64,7 @@ t_stack	*ft_process_quoted_numbers(char **argv)
 	if (!tmp[0])
 	{
 		free(tmp);
-		return (NULL);
+		ft_error();
 	}
 	while (tmp[i])
 	{
@@ -94,6 +94,8 @@ int	ft_atoi2(const char *str)
 	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f'
 		|| *str == '\v' || *str == '\r')
 		str++;
+	if (!*str)
+    	ft_error();
 	if (*str == '-')
 	{
 		mod = -1;
@@ -102,7 +104,7 @@ int	ft_atoi2(const char *str)
 	else if (*str == '+')
 		str++;
 	if (!*str)
-		ft_error();
+    	ft_error();
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
