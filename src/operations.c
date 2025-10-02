@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 // il primo if è sempre per verificare se la lista è vuota o ha un solo elemento
-// se la lista è vuota o ha un solo elemento, non fa nulla
+// se la lista è vuota o ha un solo elemento, non fa nulla (per evitare crash)
 
 // ra (rotate a) : shift up all elements of stack a by 1. 
 // The first element becomes the last one.
@@ -23,6 +23,12 @@
 	(*a)->next = tmp; imposta il next dell'ultimo elemento della lista a tmp 
 	(che sarebbe la testa) (per un istante la lista è “circolare”, 
 	ma solo momentaneamente durante la rotazione)
+
+	Sintesi in parole
+	tmp = old first node.
+	*a = last node → collegato a tmp.
+	*a = second node → nuovo primo.
+	tmp->next = NULL → old first node diventa ultimo, lista non ciclica.
 */
 
 // if (j == 0) // Questo j non centra nulla con quello di ft_process, vedrai
