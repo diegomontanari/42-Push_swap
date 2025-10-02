@@ -11,7 +11,12 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// This function checks if the stack is sorted.
+/*
+** Checks if the stack is sorted in ascending order.
+** 'i' holds the previous node's value, stack_a->nbr is the current node's value.
+** Compares each pair; returns 0 if any previous value is greater, 1 if fully sorted.
+*/
+
 int	ft_checksorted(t_stack *stack_a)
 {
 	int	i;
