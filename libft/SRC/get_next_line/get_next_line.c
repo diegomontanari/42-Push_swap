@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "../../INC/libft.h"
 
 void	*null_free(void **ptr, void **ptr2, int flag1, int flag2)
 {

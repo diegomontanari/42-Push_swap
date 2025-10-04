@@ -24,7 +24,7 @@ Both size and elem_num must be small enough to avoid overflow when multiplied,
 as either can cause the product to exceed SIZE_MAX.
 */
 
-#include "libft.h"
+#include "../INC/libft.h"
 
 void	*ft_calloc(size_t n, size_t size)
 {

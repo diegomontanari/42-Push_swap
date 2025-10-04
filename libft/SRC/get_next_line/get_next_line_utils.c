@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include "../INC/libft.h"
 
 size_t	ft_strncpy(char *dest, char *src, size_t n)
 {
@@ -25,19 +26,8 @@ size_t	ft_strncpy(char *dest, char *src, size_t n)
 	return (i);
 }
 
-size_t	ft_strlen(char *str)
-{
-	size_t	i;
 
-	if (!str || !str[0])
-		return (0);
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(char *s)
+char	*ft_strdup(const char *s)
 {
 	char	*dest;
 	size_t	i;
