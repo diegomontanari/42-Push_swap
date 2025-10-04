@@ -6,7 +6,7 @@
 /*   By: dmontana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 16:59:49 by dmontana          #+#    #+#             */
-/*   Updated: 2025/09/28 16:59:52 by dmontana         ###   ########.fr       */
+/*   Updated: 2025/10/04 16:20:09 by dmontana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,11 @@ void	ft_free(t_stack **lst)
 
 	if (!lst || !*lst)
 		return ;
-
 	while (*lst)
 	{
 		tmp = (*lst)->next;
 		free(*lst);
 		*lst = tmp;
 	}
-
 	*lst = NULL;
 }

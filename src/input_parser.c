@@ -6,7 +6,7 @@
 /*   By: dmontana <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/28 17:02:12 by dmontana          #+#    #+#             */
-/*   Updated: 2025/09/28 17:02:14 by dmontana         ###   ########.fr       */
+/*   Updated: 2025/10/04 16:19:27 by dmontana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 // This function parses (elabora/interpreta)the command-line arguments
 // and fills stack 'a'.
 // 1. If argc < 2: no arguments → exits silently (no error).
-// 2. If argc == 2: assumes a single quoted
-//					string of numbers → splits and converts them.
+// 2. If argc == 2: assumes a single quoted string of numbers → splits and 
+//    converts them.
 // 3. If argc > 2: processes each argument individually
 //				and converts them to integers.
 // It uses ft_atoi2 to safely convert strings and checks for overflow.
@@ -94,8 +94,6 @@ int	ft_atoi2(const char *str)
 	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f'
 		|| *str == '\v' || *str == '\r')
 		str++;
-	if (!*str)
-    	ft_error();
 	if (*str == '-')
 	{
 		mod = -1;
@@ -103,8 +101,6 @@ int	ft_atoi2(const char *str)
 	}
 	else if (*str == '+')
 		str++;
-	if (!*str)
-    	ft_error();
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
