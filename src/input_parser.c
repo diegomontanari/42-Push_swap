@@ -101,6 +101,8 @@ int	ft_atoi2(const char *str)
 	}
 	else if (*str == '+')
 		str++;
+	if (!str || !ft_isdigit(*str))
+		ft_error();
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
