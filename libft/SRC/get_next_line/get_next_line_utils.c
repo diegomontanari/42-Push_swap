@@ -26,7 +26,6 @@ size_t	ft_strncpy(char *dest, char *src, size_t n)
 	return (i);
 }
 
-
 char	*ft_strdup(const char *s)
 {
 	char	*dest;
