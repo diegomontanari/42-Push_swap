@@ -28,6 +28,9 @@ INCLUDE = -L ./libft -lft
 
 # ================================== REGOLE ================================== #
 
+# Target all: compila tutto (il target predefinito)
+all: $(NAME)
+
 # Regola per compilare i file .c in .o
 # $< = primo prerequisito (file .c)
 # $@ = target (file .o)
@@ -41,9 +44,6 @@ $(NAME): $(OBJS) $(LIBFTDIR)libft.a
 # Regola per compilare libft.a
 $(LIBFTDIR)libft.a:
 	@make -C $(LIBFTDIR)
-
-# Target all: compila tutto (solo il programma principale)
-all: $(NAME)
 
 # =============================== PULIZIA ==================================== #
 
