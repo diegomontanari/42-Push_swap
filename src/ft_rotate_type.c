@@ -43,6 +43,11 @@ int	ft_rotate_type_ba(t_stack *a, t_stack *b)
 // course, after rotation there is always one push
 // operation is left to do which i embeded to code.
 // Function is used during push from A to B.
+
+// Si parte con i = ft_case_rrarrb(a, b, a->nbr);
+// assumendo che sia la migliore combinazione.
+// se nel while se ne trova una migliore, 
+// i diventa quella combinazione.
 int	ft_rotate_type_ab(t_stack *a, t_stack *b)
 {
 	int		i;
