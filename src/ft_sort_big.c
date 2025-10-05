@@ -12,6 +12,9 @@
 
 #include "push_swap.h"
 // This function sort and push stacks until 3 members left behind.
+// Loop until ft_apply_* returns -1, meaning rotation was applied.
+// For this reason I use while (i >= 0)
+
 void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
