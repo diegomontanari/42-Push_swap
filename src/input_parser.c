@@ -120,6 +120,7 @@ int	ft_atoi2(const char *str)
 		ft_error();
 	return ((int)(sign * result));
 }
+
 /*
 ❓ Perché il negativo ha un numero in più?
 È dovuto alla rappresentazione in complemento a due, che è lo standard per rappresentare numeri negativi nei computer.
