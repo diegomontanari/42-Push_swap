@@ -99,6 +99,13 @@ void	ft_pa(t_stack **a, t_stack **b, int j)
 
 // rra (reverse rotate a) : shift down all elements of stack a by 1. 
 // The last element becomes the first one.
+
+// i is size - 1. So, to "cut" the link between the second-last node
+// and the last, we need to reach the second-last node starting from the head.
+// Since tmp starts at the head, we must iterate i - 1 times to land on the node
+// just before the last one (so i > 1 works).
+// Then we set tmp->next = NULL to break the circular link
+// and restore the linear structure of the list after rotating.
 void	ft_rra(t_stack **a, int j)
 {
 	t_stack	*tmp;
