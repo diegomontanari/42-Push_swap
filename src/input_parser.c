@@ -120,3 +120,28 @@ int	ft_atoi2(const char *str)
 		ft_error();
 	return ((int)(sign * result));
 }
+/*
+❓ Perché il negativo ha un numero in più?
+È dovuto alla rappresentazione in complemento a due, che è lo standard per rappresentare numeri negativi nei computer.
+
+In complemento a due, lo zero è rappresentato in modo unico.
+
+Questo fa sì che ci siano più combinazioni disponibili per i negativi rispetto ai positivi.
+
+In pratica:
+
+Ci sono 2³¹ numeri negativi: da -1 a -2147483648
+
+Ci sono 2³¹ - 1 numeri positivi: da 0 a 2147483647
+
+💡 Curiosità
+Se provi a fare -(-2147483648) in C, ottieni... un overflow! Perché 2147483648 non è rappresentabile come int. Ti serve long o long long per gestirlo.
+
+♟️ Quindi
+"2147483648" → overflow: supera INT_MAX → errore
+"-2147483649" → underflow: scende sotto INT_MIN → errore
+
+Chiaro?
+	
+Questo è il motivo per cui non ho passato l'ultimo test all'exam rank 02, ora so che basta mettere (> MAX_INT) o (< MIN_INT), ma non (=)
+*/
