@@ -99,6 +99,7 @@ void	ft_pb(t_stack **stack_a, t_stack **stack_b, int j)
 
 // rrb (reverse rotate b) : shift down all elements of stack b by 1. 
 // The last element becomes the first one.
+// For more detailed comments check rra (same logic)
 void	ft_rrb(t_stack **b, int j)
 {
 	t_stack	*tmp;
