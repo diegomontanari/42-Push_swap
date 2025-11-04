@@ -75,13 +75,20 @@ I searched for READMEs from people who had already completed the project. I stum
 
 One of the algorithms to solve the problem is called **Radix Sort**, but the author of the article used his own, which he ironically called the **Turk Algorithm** because according to him it is not very elegant and is hard-coded.
 
-### ⚛️ Logic Recap of the Turk Algorithm: How Each `pb` Operation Is Handled
+### 🤖 L'algoritmo del "Turk"
 
-1. If `stack_b` is empty → `pb`
+L'idea dietro al metodo "Turk" è sorprendentemente lineare, e segue tre passaggi ricorrenti:
 
-2. If the number is:
-   - **the biggest** → place it above the current maximum → rotate with `rb` until the max is on top, then `pb`
-   - **the smallest** → place it below the current minimum → rotate with `rrb` until the min is at the bottom, then `pb`
-   - **intermediate** → find the **adjacent pair (x, y)** in B such that `x > number > y`,  
-     rotate B until `y` is on top, then `pb`
+**Fase 1 – Riempire `stack_b`:**
+spostiamo gli elementi da `stack_a` a `stack_b`, scegliendo ogni volta quello che può essere pushato nel punto giusto con il minor numero di mosse. In questo modo `stack_b` prende forma in ordine decrescente mentre `a` si svuota progressivamente.
+
+**Fase 2 – Sistemare il cuore dell'ordinamento:**
+quando in `stack_a` rimangono soltanto tre valori, li ordiniamo direttamente lì (niente giri inutili in `stack_b`). Subito dopo, riprendiamo gli elementi di `stack_b` e li riposizioniamo in `stack_a`, calcolando di volta in volta la combinazione di rotazioni più economica. Così l'array principale torna a crescere già in ordine crescente.
+
+**Fase 3 – L'ultima rifinitura:**
+se necessario, eseguiamo un'ultima rotazione di `stack_a` per riportare il minimo assoluto in cima. È l'equivalente di dare l'ultimo tocco a un domino perfettamente allineato.
+
+📌 **Risultato finale:** `stack_a` è perfettamente ordinato in senso crescente e `stack_b` torna vuoto, a conferma che ogni spostamento è stato pianificato per minimizzare il numero complessivo di operazioni.
+
+Vediamo ora il flusso del codice.
 
